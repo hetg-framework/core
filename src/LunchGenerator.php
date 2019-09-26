@@ -23,7 +23,7 @@ class LunchGenerator
 
         Router::add('get', '/aaa', '\Hetg\LunchGenerator\Controller\AdminController::indexAction');
 
-        Router::resolve();
+        return Router::resolve();
     }
 
 }
