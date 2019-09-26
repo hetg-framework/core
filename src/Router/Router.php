@@ -1,6 +1,6 @@
 <?php
 
-namespace Hetg\LunchGenerator\Router;
+namespace Hetg\Framework\Router;
 
 class Router
 {

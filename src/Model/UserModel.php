@@ -1,6 +1,6 @@
 <?php
 
-namespace Hetg\LunchGenerator\Model;
+namespace Hetg\Framework\Model;
 
 class UserModel extends Model
 {

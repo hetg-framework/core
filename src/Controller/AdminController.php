@@ -1,9 +1,9 @@
 <?php
 
-namespace Hetg\LunchGenerator\Controller;
+namespace Hetg\Framework\Controller;
 
-use Hetg\LunchGenerator\Driver\MySQLDriver;
-use Hetg\LunchGenerator\Model\UserModel;
+use Hetg\Framework\Driver\MySQLDriver;
+use Hetg\Framework\Model\UserModel;
 
 class AdminController
 {

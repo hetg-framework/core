@@ -1,14 +1,14 @@
 <?php
 
-namespace Hetg\LunchGenerator\Service;
+namespace Hetg\Framework\Service;
 
 
-use Hetg\LunchGenerator\Interfaces\StorageDriverInterface;
+use Hetg\Framework\Interfaces\StorageDriverInterface;
 
 /**
  * Class LunchGeneratorService
  *
- * @package Hetg\LunchGenerator\Service
+ * @package Hetg\Framework\Service
  */
 class LunchGenerator
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Hetg\LunchGenerator\Interfaces;
+namespace Hetg\Framework\Interfaces;
 
 
-use Hetg\LunchGenerator\Model\Model;
+use Hetg\Framework\Model\Model;
 
 interface StorageDriverInterface
 {

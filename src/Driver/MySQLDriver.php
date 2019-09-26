@@ -1,10 +1,10 @@
 <?php
 
-namespace Hetg\LunchGenerator\Driver;
+namespace Hetg\Framework\Driver;
 
 
-use Hetg\LunchGenerator\Interfaces\StorageDriverInterface;
-use Hetg\LunchGenerator\Model\Model;
+use Hetg\Framework\Interfaces\StorageDriverInterface;
+use Hetg\Framework\Model\Model;
 
 class MySQLDriver implements StorageDriverInterface
 {
