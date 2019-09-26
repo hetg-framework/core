@@ -1,12 +1,12 @@
 <?php
-namespace Hetg\LunchGenerator;
+namespace Hetg\Framework;
 
-use Hetg\LunchGenerator\Router\Router;
+use Hetg\Framework\Router\Router;
 
-class LunchGenerator
+class Framework
 {
 
-    static public function start(){
+    static public function init(){
         if ($_SERVER['REQUEST_METHOD'] == 'PUT')
         {
             parse_str(file_get_contents("php://input"), $_PUT);
@@ -21,9 +21,7 @@ class LunchGenerator
             $_REQUEST = array_merge($_REQUEST, $_PUT);
         }
 
-        Router::add('get', '/aaa', '\Hetg\LunchGenerator\Controller\AdminController::indexAction');
-
-        Router::resolve();
+        return Router::resolve();
     }
 
 }

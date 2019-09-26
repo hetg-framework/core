@@ -1,6 +1,6 @@
 <?php
 
-namespace Hetg\LunchGenerator\Router;
+namespace Hetg\Framework\Router;
 
 class Router
 {
@@ -26,7 +26,7 @@ class Router
 
     public static function resolve(){
         $method = $_SERVER['REQUEST_METHOD'];
-        $path = $_SERVER['REQUEST_URI'];
+        $path = explode('?', $_SERVER['REQUEST_URI'], 2)[0];
 
         if (!key_exists($path, self::$routes)){
             throw new \Exception('Not Found', 404);
@@ -38,7 +38,24 @@ class Router
 
         [$controller, $action] = explode('::',self::$routes[$path]['controller']);
 
-        return (new $controller())->$action();
+        $class = new \ReflectionClass($controller);
+        $method = $class->getMethod($action);
+        $controller = $class->newInstance();
+
+        if (!empty($_REQUEST)){
+            $method = $class->getMethod($action);
+            $params = $method->getParameters();
+            $arguments = [];
+            foreach ($params as $param){
+                if (($param->isOptional() && isset($_REQUEST[$param->getName()])) || !$param->isOptional()){
+                    $arguments[$param->getPosition()] = $_REQUEST[$param->getName()];
+                }
+            }
+
+            return $method->invokeArgs($controller, array_values($arguments));
+        }
+
+        return $method->invoke($controller);
     }
 
 }

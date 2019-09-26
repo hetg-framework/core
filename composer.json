@@ -1,0 +1,23 @@
+{
+    "name": "hetg-framework/core",
+    "type": "hetg-bundle",
+    "description": "Hetg Framework Core",
+    "keywords": [],
+    "require": {
+        "php"                     : "^7.1.3",
+        "ext-ctype"               : "*",
+        "ext-iconv"               : "*",
+        "ext-pdo"                 : "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "hetg",
+            "email": "work.denis.p@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {"Hetg\\Framework\\": ""}
+    }
+}
