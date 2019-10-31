@@ -2,17 +2,21 @@
 
 namespace Hetg\Framework\Router;
 
+use Hetg\Framework\Response\Response;
+
 class Router
 {
     private static $routes = [];
 
     private static $allowedMethods = ['get', 'post', 'put', 'delete'];
 
-    public static function getRoutes(){
+    public static function getRoutes(): array 
+    {
         return self::$routes;
     }
 
-    public static function add(string $method, string $path, string $controller){
+    public static function add(string $method, string $path, string $controller): void 
+    {
         if (in_array(strtolower($method), self::$allowedMethods)){
             self::$routes[$path] = [
                 'controller' => $controller,
@@ -24,7 +28,8 @@ class Router
 
     }
 
-    public static function resolve(){
+    public static function resolve(): void 
+    {
         $method = $_SERVER['REQUEST_METHOD'];
         $path = explode('?', $_SERVER['REQUEST_URI'], 2)[0];
 
@@ -52,10 +57,16 @@ class Router
                 }
             }
 
-            return $method->invokeArgs($controller, array_values($arguments));
+            $response = $method->invokeArgs($controller, array_values($arguments));
+        }else{
+            $response = $method->invoke($controller);
         }
 
-        return $method->invoke($controller);
+        if (!$response instanceof Response){
+            throw new \Exception('Controller should return Response object', 500);
+        }
+        
+        $response->send();
     }
 
 }
