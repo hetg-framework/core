@@ -1,6 +1,6 @@
 <?php
 
-namespace Hetg\Framework\Interfaces;
+namespace Hetg\Framework\Driver;
 
 
 use Hetg\Framework\Model\Model;

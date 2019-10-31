@@ -6,7 +6,8 @@ use Hetg\Framework\Router\Router;
 class Framework
 {
 
-    static public function init(){
+    static public function init(): void 
+    {
         if ($_SERVER['REQUEST_METHOD'] == 'PUT')
         {
             parse_str(file_get_contents("php://input"), $_PUT);
@@ -21,7 +22,7 @@ class Framework
             $_REQUEST = array_merge($_REQUEST, $_PUT);
         }
 
-        return Router::resolve();
+        Router::resolve();
     }
 
 }
