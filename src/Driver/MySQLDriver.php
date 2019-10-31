@@ -3,7 +3,7 @@
 namespace Hetg\Framework\Driver;
 
 
-use Hetg\Framework\Interfaces\StorageDriverInterface;
+use Hetg\Framework\Driver\StorageDriverInterface;
 use Hetg\Framework\Model\Model;
 
 class MySQLDriver implements StorageDriverInterface
